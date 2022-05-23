@@ -22,7 +22,6 @@ var checkIfExist = function(arr) {
         }
     }
 
-    console.log(negatives, positives, zeros);
     return does_double_exists;
 };
 
