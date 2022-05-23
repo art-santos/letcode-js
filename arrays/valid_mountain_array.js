@@ -1,40 +1,35 @@
 function main(){
-    console.log(validMountainArray([3,4,5,2,1]));
+    console.log(validMountainArray([3,5,5]));
 }
 
 var validMountainArray = function(arr) {
     var valid = true;
+    let max = [...arr]
 
-    const even_or_odd = arr.length%2==0;
+    max = max.sort((a,b) => b - a)[0];
 
-    const middle = !even_or_odd ?
-    Math.floor(arr.length/2) :
-    false;
+    const increasing = arr.slice(0, arr.indexOf(max)+1);
 
-    const increasing = even_or_odd ?
-    arr.slice(0, arr.length/2) :
-    arr.slice(0, (arr.length/2)+1);
-
-    const decreasing = even_or_odd ?
-    arr.slice(arr.length/2, arr.length) :
-    arr.slice((arr.length/2)+1, arr.length);
-
-
+    const decreasing = arr.slice(arr.indexOf(max)+1, arr.length);
 
     if(valid){
-        if (arr.length < 3){
+
+        if(arr.length < 3){
+            valid = false
+        };
+
+        if(decreasing.length == 0){
             valid = false;
-        }
-        
-        if(even_or_odd){
-            if(increasing[arr.length] <= decreasing[0]){
-                valid = false;
-            }
-        }else{
-            if(arr[middle] <= arr[middle - 1]
-                || arr[middle] <= arr[middle + 1]){
-                valid = false;
-            }   
+        };
+
+        if(increasing.length <= 1){
+            valid = false;
+        };
+
+        for (let i = 0; i<decreasing.length; i++){
+                if(decreasing[i] >= max){
+                    valid = false;
+                }
         }
 
         for (let i = 0; i<increasing.length; i++){
@@ -54,7 +49,8 @@ var validMountainArray = function(arr) {
         }
 
     }
-    return valid;
+
+    return valid
 };
 
 
