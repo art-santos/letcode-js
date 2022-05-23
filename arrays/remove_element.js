@@ -1,18 +1,14 @@
 function main(){
-    console.log(removeElement([0,1,2,2,3,0,4,2,1,2,2,2,2,2,2,2,2], 2));
+    console.log(removeElement([3,2,2,3], 2));
 }
 
 var removeElement = function(nums, val) {
-    let total_matches = 0;
-
-    for (n in nums){
-        if(nums[n] === val){
-            delete nums[n];
-            total_matches++;
-        }
+    var count = 0;
+    
+    for (var i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) nums[count++] = nums[i];
     }
-
-    return nums.length - total_matches;
+    return count;
 };
 
 
