@@ -10,7 +10,6 @@ var replaceElements = function(arr) {
         arr.shift();
         replaced.push(Math.max(...arr) !== -Infinity ? Math.max(...arr) : -1);
         i++;
-        console.log(arr);
     }while(i <= len-1);
     return replaced;
 };
