@@ -3,16 +3,24 @@ function main(){
 }
 
 var duplicateZeros = function(arr) {
-    let array_with_duplicated_zeros = [];
+    const len = [...arr].length;
 
-    for (n in arr){
-        arr[n] === 0 ?
-        array_with_duplicated_zeros.push(0, 0)
-        :
-        array_with_duplicated_zeros.push(arr[n]);
+    let i = 0;
+    do{
+        if(arr[i] === 0){
+            arr.splice(i, 0, 0);
+            i++;
+        }
+        i++;
+    }while(i<=arr.length-1);
+    
+    console.log(arr.length, len);
+
+    if(arr.length > len){
+        arr.splice(len, arr.length - len);
     }
 
-    return array_with_duplicated_zeros;
+    return arr;
 };
 
 main();
