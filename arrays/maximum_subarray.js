@@ -14,3 +14,21 @@ var maxSubArray = function (nums) {
 }
 
 main();
+
+
+/**
+ * var maxSubArray = function (nums) {
+    let biggest_sum = [...nums].reduce((a,b) => a + b);
+
+    for(let i=0; i<nums.length; i++){
+        for(let j=i+1; j<nums.length; j++){
+            let sum = nums.slice(i, j).reduce((a,b) => a + b);
+            if(sum > biggest_sum){
+                biggest_sum = sum;
+            }
+        }
+    }
+    return biggest_sum;
+}
+
+ */
