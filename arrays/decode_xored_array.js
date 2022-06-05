@@ -6,5 +6,4 @@ var decode = function(encoded, first) {
     
 };
 
-
 main();
