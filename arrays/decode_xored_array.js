@@ -1,9 +1,11 @@
-function main(){
+var decode = function (encoded, first) {
+  let arr = [first];
 
-}
+  for (let i = 0; i < encoded.length; i++) {
+    arr[i + 1] = arr[i] ^ encoded[i];
+  }
 
-var decode = function(encoded, first) {
-    
+  return arr;
 };
 
-main();
+console.log(decode([6, 2, 7, 3], 4));
