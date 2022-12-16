@@ -1,5 +1,5 @@
 function main() {
-  console.log(isHappy(7));
+  console.log(isHappy(19562515615616515414514514514515454));
 }
 
 var isHappy = function (n) {
