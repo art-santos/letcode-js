@@ -5,7 +5,8 @@ function main() {
 var isAnagram = function (s, t) {
   if (s.length !== t.length) return false;
 
-  var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const char = Array.from(Array(26)).map((e, i) => i + 65);
+  const alphabet = char.map((e) => String.fromCharCode(e));
 
   let mapS = alphabet.reduce((acc, curr) => ((acc[curr] = 0), acc), {});
   let mapT = alphabet.reduce((acc, curr) => ((acc[curr] = 0), acc), {});
